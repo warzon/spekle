@@ -1,0 +1,10 @@
+PHOTON_COUNT=100
+COEF_SCATERING=0.01
+COEF_ABSORBTION=1e-011
+ANISOTROPY_FACTOR=0.4
+delta_z=100
+z0 =350
+x0 =300
+|	Distance	|	Nstat	|	Ndin
+_________________________________________________________________
+|	600.000		|	8		|	1		|

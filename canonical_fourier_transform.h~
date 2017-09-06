@@ -1,0 +1,34 @@
+#ifndef CANONICAL_FOURIER_TRANSFORM_H
+#define CANONICAL_FOURIER_TRANSFORM_H
+
+#include "fourier_window.h"
+
+#define ALL_FOURIER
+
+namespace Math {
+
+    namespace Fourier {
+
+        class Canonical : public Window
+        {
+	private:
+		void init();
+		double *_signal;
+
+        protected:
+            Complex *out;
+
+        public:
+            Canonical(double *signal, u32 size);
+            ~Canonical();
+
+            inline Complex get(u32 count);
+	    Complex operator()(u32 count);
+
+            void compute();
+	    void computeInverse();
+        };
+    }
+}
+
+#endif // CANONICAL_FOURIER_TRANSFORM_H

@@ -1,0 +1,62 @@
+#ifndef FIELD_H
+#define FIELD_H
+
+#include "boks-muller.h"
+
+namespace Field {
+
+typedef std::pair<unsigned int , unsigned int> Dimensions;
+
+class Image {
+
+public:
+	Image(Dimensions dim, u32 slices);	
+	~Image();
+
+	void dump();
+	void future();
+	void computeAutoCorrelation();
+
+	u32 timeSlices();
+
+protected:
+	void init();
+	void fill();	
+
+	void computeIntegral();
+	double computeExpectedIntensity();
+
+	double computeAverageIntensity();
+
+	Dimensions _dim;
+	
+	u32 _timeSlices;
+	double **phase;
+	double **disposition;
+	double *intensity;
+	double *autoCorrelation;	
+	Complex *tension;
+	double *timeLapse;	
+
+	Complex _tension;
+	double _timeLapse;
+	double _intensity;
+	double _averageIntensity;
+
+	u32 _timeSlice;
+
+	Fortune::BoksMuller generator;	
+
+private:	
+	std::ofstream outTension;
+	std::ofstream outTimeLapse;
+	std::ofstream outVars;
+	std::ofstream outIntensity;
+	std::ofstream outAutoCorrelation;
+
+	void  saveVars();
+};
+
+} // namespace Field
+
+#endif
