@@ -10,8 +10,8 @@ typedef std::pair<double, double> Couple;
 class BoksMuller : public ParkMiller {
 
 private:
-	static const double sigma = 0.5;
-	static const double mu = 0;
+	static constexpr double sigma = 0.5;
+	static constexpr double mu = 0;
 
 	double normalize(double val);
 

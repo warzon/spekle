@@ -13,7 +13,7 @@ void assignDefaults() {
 }
 
 void parseArgs(int argc, char **argv) {
-	std::cout << "Configuration: " << std::endl;	
+	std::cout << "Configuration: " << std::endl;
 
 	if(argc == 3) {
 
@@ -23,7 +23,7 @@ void parseArgs(int argc, char **argv) {
 		dim = Field::Dimensions(tmp,tmp);
 
 		return;
-	} 
+	}
 
 	assignDefaults();
 }
@@ -39,14 +39,14 @@ int main(int argc, char **argv) {
 
 	Field::Image image(dim, TimeSlices);
 	Common::ProgressBar progress(image.timeSlices(),"Future");
-	
+
 	for(int i=0; i < image.timeSlices(); i++) {
-		image.future();		
+		image.future();
 
 		progress++;
 	}
 
-	image.computeAutoCorrelation();	
+	image.computeAutoCorrelation();
 	image.dump();
 
 	return 0;
